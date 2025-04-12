@@ -24,3 +24,55 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+
+.nav-bg-color {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.36) 0%, rgba(0, 0, 0, 0.6) 100%);
+  backdrop-filter: blur(18px);
+}
+.circle-gradient { 
+  background: radial-gradient(50% 50% at 50% 50%, #0096D7 0%, #007AAF 100%);
+  box-shadow: 0px 4px 40px 0px #007AAD4D;
+}
+.img-overlay {
+  -webkit-mask-image: url('/Images/home-bg.svg');
+  mask-image: url('/Images/home-bg.svg');
+
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+
+  -webkit-mask-size: cover;
+  mask-size: cover;
+
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+.img-overlay-container {
+  -webkit-mask-image: url('/Images/home-bg.svg');
+  mask-image: url('/Images/home-bg.svg');
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+
+.accordion-shadow {
+  box-shadow: 0px 0px 14px 0px #00000012;
+}
+.gradient-border {
+  border: 2px solid;
+  border-image-source: linear-gradient(147.44deg, #0096D7 0%, rgba(0, 150, 215, 0.1) 100%);
+  border-image-slice: 1;
+  border-radius: 8px;
+}
+.rank-section-box {
+  box-shadow: 0px 0px 20px 0px #00000026;
+  backdrop-filter: blur(20px);
+  border-radius: 50px;
+
+}

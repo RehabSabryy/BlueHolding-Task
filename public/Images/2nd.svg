@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="273"
+   height="403"
+   viewBox="0 0 273 403"
+   fill="none"
+   version="1.1"
+   id="svg5"
+   sodipodi:docname="2nd.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview5"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.9528536"
+     inkscape:cx="75.530496"
+     inkscape:cy="161.04638"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg5" />
+  <path
+     d="M-0.00762939 34.7665C-0.00762939 34.7665 3.64056 67.4377 135.584 67.4377C267.527 67.4377 272.391 34.7665 272.391 34.7665V373.345C272.391 373.345 272.391 409.959 136.192 409.959C-0.00762939 409.959 -0.00762939 373.345 -0.00762939 373.345L-0.00762939 34.7665Z"
+     fill="url(#paint0_linear_1079_450)"
+     id="path1" />
+  <ellipse
+     cx="136.192"
+     cy="34.7665"
+     rx="136.199"
+     ry="33.7978"
+     fill="#DCDCDC"
+     id="ellipse1" />
+  <ellipse
+     cx="143.613"
+     cy="51"
+     rx="27.0564"
+     ry="5"
+     fill="url(#paint1_radial_1079_450)"
+     id="ellipse2" />
+  <defs
+     id="defs5">
+    <linearGradient
+       id="paint0_linear_1079_450"
+       x1="-0.0076261"
+       y1="90.5328"
+       x2="271.922"
+       y2="120.672"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#D1D1D1"
+         id="stop2" />
+      <stop
+         offset="1"
+         stop-color="#6B6B6B"
+         id="stop3" />
+    </linearGradient>
+    <radialGradient
+       id="paint1_radial_1079_450"
+       cx="0"
+       cy="0"
+       r="1"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(143.613 51) rotate(87.4929) scale(4.31447 23.3175)">
+      <stop
+         id="stop4" />
+      <stop
+         offset="1"
+         stop-opacity="0"
+         id="stop5" />
+    </radialGradient>
+  </defs>
+</svg>
