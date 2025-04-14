@@ -9,26 +9,25 @@ export default function TopPerformersSections() {
     }
   };
   return (
-    <section className="w-full min-h-screen flex items-end justify-center relative top-32">
+    <section className="w-full min-h-screen flex items-end justify-center relative top-0">
       <img
         src="./Images/home-bg.svg"
-        className="absolute w-full object-cover z-0"
+        className="absolute w-full object-cover z-0 top-0"
         alt="Home background"
       />
-
       <img
         src="./Images/home-overlay-bg.svg"
-        className="absolute w-full img-overlay object-cover z-10 opacity-60"
+        className="absolute w-full img-overlay object-cover z-10 opacity-60 top-0"
         alt="Overlay"
       />
 
       <div className="flex flex-col w-full">
-        <div className="relative z-20 text-center">
-          <h1 className="text-white text-5xl md:text-7xl font-bold mb-4 flex items-center justify-center gap-2">
-            <img src="/Images/test.webp" alt="" className="w-20" />
+        <div className="relative top-32 z-20 text-center">
+          <h1 className="text-white text-2xl md:text-7xl font-bold mb-4 flex items-center justify-center gap-2 ">
+            <img src="/Images/test.webp" alt="" className="w-10 md:w-20" />
             Top Performers
           </h1>
-          <p className="text-white mb-6 text-3xl md:text-4xl">
+          <p className="text-white mb-6 text-xl md:text-4xl">
             Who's Leading the Way?
           </p>
           <div className="flex justify-center items-center">
