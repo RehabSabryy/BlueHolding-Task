@@ -12,6 +12,7 @@ export default function RoomConfirmationPopup({onClose}) {
       }
     };
 
+    // test 
     const handleEscape = (e) => {
       if (e.key === "Escape") triggerClose();
     };
