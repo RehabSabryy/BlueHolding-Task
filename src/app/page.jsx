@@ -8,14 +8,15 @@ import HowToRankSection from "@/Components/LandingPage/HowToRankSection/HowToRan
 import TopPerformersSections from "@/Components/LandingPage/TopPerformersSection/TopPerformersSections";
 
 export default function Home() {
+
   return (
     <div className="relative w-full font-[family-name:var(--font-geist-sans)]">
       <Header />
 
-      <TopPerformersSections />
+      <TopPerformersSections/>
 
       {/* Ranking Section */}
-      <RankingSection />
+      <RankingSection/>
 
       <SecretsOfCompletion />
 

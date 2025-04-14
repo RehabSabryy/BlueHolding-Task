@@ -1,50 +1,65 @@
+import { useState } from "react";
+import PrimaryButton from "@/Components/PrimaryButton/PrimaryButton";
+import RoomConfirmationPopup from "@/Components/RoomConfirmationPopup/RoomConfirmationPopup";
+import SectionTitle from "@/Components/SectionTitle/SectionTitle";
 export default function SecretsOfCompletion() {
+  const [showPopup, setShowPopup] = useState(false);
+
   const games = [
     {
-      title: "Museum Escape Room",
+      title: "Climbing Everest",
       description: "Unlock the basics and step into the world of competition",
       image: "./Images/game-sample.svg",
+      isLocked: false,
     },
     {
       title: "Museum Escape Room",
       description: "Unlock the basics and step into the world of competition",
       image: "./Images/game-sample.svg",
+      isLocked: true,
     },
     {
-      title: "Museum Escape Room",
+      title: "Time Machine",
       description: "Unlock the basics and step into the world of competition",
       image: "./Images/game-sample.svg",
+      isLocked: false,
     },
     {
-      title: "Museum Escape Room",
+      title: "Unsolved Case",
       description: "Unlock the basics and step into the world of competition",
       image: "./Images/game-sample.svg",
+      isLocked: false,
     },
     {
-      title: "Museum Escape Room",
+      title: "Direct Quiz",
       description: "Unlock the basics and step into the world of competition",
       image: "./Images/game-sample.svg",
+      isLocked: false,
     },
     {
-      title: "Museum Escape Room",
+      title: "Locked",
       description: "Unlock the basics and step into the world of competition",
       image: "./Images/game-sample.svg",
+      isLocked: true,
     },
   ];
-  
 
   return (
-    <div className='bg-[#FCFCFC] min-h-screen py-12 px-4 md:px-16 relative top-32'>
-      <div className="flex flex-col justify-center items-center">
-        <h4 className='text-4xl text-[#363636] font-semibold'>Unlock the Secrets of the Competition!</h4>
-        <p className="text-[#8D8D8D] text-2xl text-center py-5">
-          Each level is a new room in the escape challenge, filled with mysteries and puzzles from the Competition Guide. Answer the questions, solve the clues, and progress to the next stage. Are you ready to escape?
-        </p>
-      </div>
-
+    <div
+      id="secrets-of-completion"
+      className="bg-[#FCFCFC] min-h-screen py-12 px-4 md:px-16 relative top-32"
+    >
+      <SectionTitle
+        sectionH4="Unlock the Secrets of the Competition!"
+        sectionParagraph="Each level is a new room in the escape challenge, filled with mysteries and puzzles from the Competition Guide. Answer the questions, solve the clues, and progress to the next stage. Are you ready to escape?"
+      />
       <div className="grid grid-cols-12 gap-x-5 mt-10">
         {games.map((game, index) => (
-          <div key={index} className="col-span-12 md:col-span-4 flex flex-col items-center">
+          <div
+            key={index}
+            onClick={() => setShowPopup(true)}
+            className="col-span-12 md:col-span-4 flex flex-col items-center"
+          >
             <img src={game.image} alt="" className="z-20" />
             <div className="relative bottom-30 w-[323px] h-[323px] bg-[#F3F3F3] p-4 rounded-full">
               <div className="mt-30 flex flex-col items-center flex-wrap">
@@ -56,12 +71,42 @@ export default function SecretsOfCompletion() {
                 </p>
               </div>
             </div>
-            <button className="bg-white relative bottom-40 rounded shadow text-[#0096D7] flex items-center gap-2 px-7 py-2 hover:bg-[#F3F3F3] transition duration-300">
-              <img src="/Images/rocket.svg" alt="" />
-              Start Game
-            </button>
+            {/* <PrimaryButton
+                text={game.isLocked ? "Opens at 12/4" : "Start Game"}
+                icon={game.isLocked ? "/Images/lock.svg" : "/Images/rocket.svg"}
+                className={`relative bottom-40 ${
+                  game.isLocked ? "opacity-50 text-[#D70000]" : ""
+                }`}
+                onClick={() => {
+                  if (!game.isLocked) {
+                    setShowPopup(true);
+                  }
+                }}
+              /> */}
+              {game.isLocked ? (
+                  <PrimaryButton
+                  text="Opens at 12/4"
+                  icon="/Images/lock.svg"
+                  className={`relative bottom-40 opacity-50 text-[#D70000]`}
+                  disabled={true}
+                />
+              ) : ( 
+                <PrimaryButton
+                text= "Start Game"
+                icon="/Images/rocket.svg"
+                className={`relative bottom-40`}
+                onClick={() => {
+                    setShowPopup(true);
+                }}
+              />
+              )
+                }
+
           </div>
         ))}
+        {showPopup &&  (
+          <RoomConfirmationPopup onClose={() => setShowPopup(false)} />
+        )}
       </div>
     </div>
   );

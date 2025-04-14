@@ -2,23 +2,28 @@
 import Header from "@/Components/Header/Header";
 import HowToRankSection from "@/Components/LandingPage/HowToRankSection/HowToRankSection";
 import TopHighlightSection from "@/Components/LandingPage/TopHighlightSection/TopHighlightSection";
+import Link from "next/link";
 
 export default function LeaderboardPage() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center">
-      <Header />
-      <div className="relative top-32">
-        <div>
-          <h4 className="text-4xl font-semibold text-[#363636]">
+<div id="full-leaderboard-page" className="min-h-screen w-full flex flex-col items-center justify-center">
+<div className="bg-leaderboard w-full flex flex-col items-center justify-center">
+  <Header />
+      <section id="full-leaderboard-section" className="relative top-32">
+        <div className="flex items-center mt-10 mb-5">
+          <Link href="/" className="text-[#0096D7] text-lg font-semibold relative left-[-150px]">
+           {"< "}Back to home
+          </Link>
+          <h4 className="text-4xl font-semibold text-[#363636] relative left-[100px]">
             See Where You Stand!
           </h4>
-          <p className="mb-6 text-[#8D8D8D] text-2xl w-3/4 text-center">
+        </div>
+          <p className="mb-6 text-[#8D8D8D] text-2xl text-center w-3/4 mx-auto">
             Explore the rankings, track your progress, and challenge yourself to
             climb higher!
           </p>
-        </div>
-        <div className="rank-section-box p-6 mb-5">
-          {[...Array(12)].map((_, i) => {
+        <div className="rank-section-box p-6 mb-5 z-20 bg-white">
+          {[...Array(17)].map((_, i) => {
             const rankColors = [
               "text-[#F9A845]",
               "text-[#C0C0C0]",
@@ -46,7 +51,7 @@ export default function LeaderboardPage() {
                   <img
                     src="./Images/sample.jpeg"
                     alt="Sample"
-                    className="h-[52px] w-[52px] object-cover rounded-full"
+                    className="h-[52px] w-[52px] object-cover object-top rounded-full"
                   />
                   <p className="text-lg font-medium">Brooklyn Simmons</p>
                 </div>
@@ -58,11 +63,12 @@ export default function LeaderboardPage() {
             );
           })}
         </div>
-      </div>
-
+      </section>
+    </div>
+      <div className="w-full">
       <TopHighlightSection />
-      <HowToRankSection />
-      <hr />
+      </div>
+  <HowToRankSection />
     </div>
   );
 }

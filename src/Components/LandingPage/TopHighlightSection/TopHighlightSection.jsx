@@ -1,10 +1,11 @@
 import { useState } from "react";
-
+import SectionTitle from "@/Components/SectionTitle/SectionTitle";
 
 export default function TopHighlightSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [activeTab, setActiveTab] = useState("higherScores");
 
-  const images = Array(10).fill("/Images/sample.jpeg"); 
+  const images = Array(10).fill("/Images/sample.jpeg");
   const visibleCount = 6;
 
   const nextSlide = () => {
@@ -19,41 +20,70 @@ export default function TopHighlightSection() {
     }
   };
 
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+    setCurrentIndex(0);
+  };
+
   return (
-    <div className="min-h-screen py-12 relative top-32">
-      <div className="px-4 md:px-16 flex flex-col justify-center items-center">
-      <h4 className="text-5xl font-semibold text-[#363636]">Top Highlights</h4>
-      <p className="text-[#8D8D8D] mt-3 text-2xl text-center">
-        See who’s setting the bar high with outstanding scores, lightning-fast completions, and unmatched efficiency
-      </p>
+    <section id="top-highlights" className="min-h-screen py-12 relative top-32">
+      <SectionTitle
+        sectionH4=" Top Highlights"
+        sectionParagraph="See who’s setting the bar high with outstanding scores, lightning-fast
+          completions, and unmatched efficiency"
+      />
+      <div className="ms-20 flex mt-10">
+        <button
+          onClick={() => handleTabChange("higherScores")}
+          className={`p-4 rounded-t-lg cursor-pointer transition-all duration-300 ${
+            activeTab === "higherScores"
+              ? "bg-[#F3F3F3] text-gray-500"
+              : " bg-white text-[#0096D7]"
+          }`}
+        >
+          Higher Scores
+        </button>
+        <button
+          onClick={() => handleTabChange("fasterCompletion")}
+          className={`p-4 rounded-t-lg cursor-pointer transition-all duration-300 ${
+            activeTab === "fasterCompletion"
+              ? "bg-[#F3F3F3] text-gray-500"
+              : " bg-white text-[#0096D7]"
+          }`}
+        >
+          Faster Completion
+        </button>
+        <button
+          onClick={() => handleTabChange("minimumAttempts")}
+          className={`p-4 rounded-t-lg cursor-pointer transition-all duration-300 ${
+            activeTab === "minimumAttempts"
+              ? "bg-[#F3F3F3] text-gray-500"
+              : " bg-white text-[#0096D7]"
+          }`}
+        >
+          Minimum Attempts
+        </button>
       </div>
-      <div className="ms-20">
-        <button className="mt-10 p-4 bg-[#F3F3F3] text-[#0096D7] rounded-t-lg cursor-pointer">Higher Scores</button>
-        <button className="p-4 cursor-pointer">Faster Completion</button>
-        <button className="p-4 cursor-pointer">Minimum Attempts</button>
-      </div>
+
       <div className="relative w-full bg-[#F3F3F3]">
         <button
           onClick={prevSlide}
-          className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-3 rounded-full shadow z-10 disabled:opacity-30"
+          className="absolute left-10 top-1/2 transform -translate-y-1/2 bg-[#E3E3E3] hover:bg-white py-2 px-3 cursor-pointer rounded-xl shadow z-10 disabled:opacity-30"
           disabled={currentIndex === 0}
         >
-        {'<'}
+          <span className="text-[#B7B7B7] font-bold">{"<"}</span>
         </button>
 
-        <div className="overflow-hidden">
+        <div className="overflow-hidden mx-20">
           <div
             className="flex gap-4 transition-transform duration-300 overflow-hidden"
             style={{
-              transform: `translateX(-${(currentIndex * (100 / visibleCount))}%)`,
+              transform: `translateX(-${currentIndex * (100 / visibleCount)}%)`,
               width: `${(images.length / visibleCount) * 100}%`,
             }}
           >
             {images.map((img, index) => (
-              <div
-                key={index}
-                className="p-4 text-center"
-              >
+              <div key={index} className="px-4 py-7 text-center">
                 <p className="w-9 h-9 flex justify-center items-center mx-auto mb-2 rounded-full border bg-orange-200 border-orange-500 p-2 text-orange-500 text-sm">
                   {index + 1}
                 </p>
@@ -61,10 +91,10 @@ export default function TopHighlightSection() {
                   <img
                     src={img}
                     alt={`Highlight ${index + 1}`}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-top"
                   />
                 </div>
-                <p className="mt-2 text-sm">100 points</p>
+                <p className="mt-2 text-[#696969]">100 points</p>
               </div>
             ))}
           </div>
@@ -72,12 +102,12 @@ export default function TopHighlightSection() {
 
         <button
           onClick={nextSlide}
-          className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-3 rounded-full shadow z-10 disabled:opacity-30"
+          className="absolute right-10 top-1/2 transform -translate-y-1/2 bg-[#E3E3E3] hover:bg-white py-2 px-3 cursor-pointer rounded-xl shadow z-10 disabled:opacity-30"
           disabled={currentIndex + visibleCount >= images.length}
         >
-        {'>'}
-            </button>
+          <span className="text-[#B7B7B7] font-bold">{">"}</span>
+        </button>
       </div>
-    </div>
+    </section>
   );
 }

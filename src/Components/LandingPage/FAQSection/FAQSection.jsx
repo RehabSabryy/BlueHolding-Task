@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SectionTitle from "@/Components/SectionTitle/SectionTitle";
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState(null);
@@ -26,12 +27,14 @@ export default function FAQSection() {
   ];
 
   return (
-    <section id="faqs" className="min-h-screen flex flex-col justify-center items-center relative top-32">
-      <h4 className="text-5xl font-bold mb-2">FAQs</h4>
-      <p className="text-[#8D8D8D] text-2xl">
-        Everything You Need to Know to Dominate the Challenge!
-      </p>
-
+    <section
+      id="faqs"
+      className="min-h-screen flex flex-col justify-center items-center relative top-32"
+    >
+      <SectionTitle
+        sectionH4="FAQs"
+        sectionParagraph="Everything You Need to Know to Dominate the Challenge!"
+      />
       <div className="mt-6 w-1/2 text-left cursor-pointer">
         {faqs.map((faq, index) => (
           <div
