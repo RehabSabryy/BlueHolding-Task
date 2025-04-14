@@ -12,12 +12,12 @@ export default function TopPerformersSections() {
     <section className="w-full min-h-screen flex items-end justify-center relative top-0">
       <img
         src="./Images/home-bg.svg"
-        className="absolute w-full object-cover z-0 top-0"
+        className="absolute w-full object-cover z-0 top-0 h-[120vh]"
         alt="Home background"
       />
       <img
         src="./Images/home-overlay-bg.svg"
-        className="absolute w-full img-overlay object-cover z-10 opacity-60 top-0"
+        className="absolute w-full img-overlay object-cover z-10 opacity-50 top-0 h-[120vh]"
         alt="Overlay"
       />
 
@@ -39,14 +39,15 @@ export default function TopPerformersSections() {
           </div>
         </div>
 
-        <div className="relative z-30 w-full h-[calc(100vh-150px)] flex justify-center items-end">
-          <img src="/Images/Ranking.svg" className="w-[700px] mask-wrapper" />
+        <div className="relative z-30 w-full  flex justify-center items-end">
+          <img src="/Images/Ranking.svg" className="w-[40%] h-[calc(120vh-300px)]" />
+          <div  className=" h-[calc(120vh-150px)]">
           {/* 1st */}
           <PerformerCard
             image="/Images/sample.jpeg"
             points={200}
-            containerStyles="w-[90px] h-[90px] md:w-[122px] md:h-[119px] top-[22%] left-189 transform -translate-x-1/2"
-            textStyles="top-[66%] left-[49.5%] transform -translate-x-1/2"
+            containerStyles="w-[7%] h-[14%]  top-[33.5%] left-[49.7%] transform -translate-x-1/2"
+            textStyles="top-[64%] left-[49.5%] transform -translate-x-1/2"
             textColor="text-[#BE7926]"
           />
           {/* 2nd  */}
@@ -65,9 +66,10 @@ export default function TopPerformersSections() {
             textStyles="top-[70%] left-[33%]"
             textColor="text-[#CC5F2E]"
           />
+          </div>
         </div>
         <img
-          src="./Images/drawing.svg"
+          src="./Images/drawing.png"
           alt=""
           className="absolute bottom-0 left-0 w-full z-50 pointer-events-none"
         />

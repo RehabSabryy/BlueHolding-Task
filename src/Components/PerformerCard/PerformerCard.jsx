@@ -3,7 +3,7 @@ const PerformerCard = ({ image, points, containerStyles, textStyles, textColor }
       <img
         src={image}
         alt="Performer"
-        className={`absolute rounded-full object-cover ${containerStyles}`}
+        className={`absolute rounded-full object-cover object-top ${containerStyles}`}
         loading="lazy"
       />
       <div className={`absolute text-center ${textStyles} ${textColor}`}>
