@@ -6,25 +6,25 @@ import TopHighlightSection from "@/Components/LandingPage/TopHighlightSection/To
 import FAQSection from "@/Components/LandingPage/FAQSection/FAQSection";
 import HowToRankSection from "@/Components/LandingPage/HowToRankSection/HowToRankSection";
 import TopPerformersSections from "@/Components/LandingPage/TopPerformersSection/TopPerformersSections";
+import Head from 'next/head';
 
 export default function Home() {
 
   return (
-    <div className="relative w-full font-[family-name:var(--font-geist-sans)]">
+    <>
+    <Head>
+      <title>Your Awesome Product</title>
+      <meta name="BlueHolding Gamified Landing Page" content="Landing Page for BlueHolding Gamified LMS Solution" />
+    </Head>
+    <div className="relative w-full font-[family-name:var(--font-inter)]">
       <Header />
-
       <TopPerformersSections/>
-
-      {/* Ranking Section */}
       <RankingSection/>
-
       <SecretsOfCompletion />
-
       <TopHighlightSection />
       <HowToRankSection />
-      {/* FAQ Section */}
-
       <FAQSection />
     </div>
+    </>
   );
 }

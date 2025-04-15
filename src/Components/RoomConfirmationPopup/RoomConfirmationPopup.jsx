@@ -1,4 +1,5 @@
 import {useRef , useEffect , useState} from "react";
+import Image from "next/image";
 
 export default function RoomConfirmationPopup({onClose}) {
   const popupRef = useRef(null);
@@ -50,11 +51,14 @@ export default function RoomConfirmationPopup({onClose}) {
             ? "opacity-0 scale-95"
             : "opacity-100 scale-100 animate-fadeInScale"
         }`}>
-        <div className="h-[370px] w-full">
-          <img
+        <div className="relative h-[370px] w-full">
+          <Image
             src="/Images/popup-img.svg"
-            alt="game"
-            className="w-full h-full object-cover object-top"
+            alt="Game preview"
+            fill
+            className="object-cover object-top"
+            priority
+            quality={85}
           />
         </div>
 
@@ -74,8 +78,15 @@ export default function RoomConfirmationPopup({onClose}) {
           </div>
 
           <button onClick={handleStartGame} className="w-full bg-[#0096D7] text-white text-lg md:text-2xl font-medium cursor-pointer rounded-md py-3 flex items-center justify-center gap-2 hover:bg-[#007bb3] transition duration-300">
-            <img src="/Images/rocket-white.svg" alt="" className="w-6 h-6" />
-            Start Game
+          <div className="relative w-6 h-6">
+              <Image
+                src="/Images/rocket-white.svg"
+                alt=""
+                fill
+                className="object-contain"
+              />
+            </div>
+              Start Game
           </button>
         </div>
       </div>

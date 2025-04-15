@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SectionTitle from "@/Components/SectionTitle/SectionTitle";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState(null);
@@ -35,39 +36,70 @@ export default function FAQSection() {
         sectionH4="FAQs"
         sectionParagraph="Everything You Need to Know to Dominate the Challenge!"
       />
-      <div className="mt-6 w-1/2 text-left cursor-pointer">
-        {faqs.map((faq, index) => (
-          <div
+      <div className="mt-6 w-3/4 md:w-1/2 text-left cursor-pointer">
+      {faqs.map((faq, index) => (
+          <motion.div
             key={index}
-            className="accordion-shadow border border-gray-200 mb-2 rounded-xl"
+            className="accordion-shadow border border-gray-200 mb-2 rounded-xl overflow-hidden"
+            initial={false}
+            animate={{ 
+              backgroundColor: openIndex === index ? "#f9fafb" : "#ffffff"
+            }}
+            transition={{ duration: 0.2 }}
           >
             <button
               onClick={() => toggle(index)}
-              className="w-full flex justify-between items-center p-5 font-semibold text-[#363636] hover:text-blue-600 transition-all duration-200"
+              className="w-full flex justify-between items-center p-5 font-semibold text-[#363636] cursor-pointer hover:text-blue-600 transition-all duration-200"
             >
               <span>{faq.question}</span>
-              <svg
-                className={`w-4 h-4 font-semibold transition-transform duration-300 ${
-                  openIndex === index ? "rotate-180" : ""
-                }`}
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
+              <motion.div
+                animate={{ rotate: openIndex === index ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
+                <svg
+                  className="w-4 h-4 font-semibold"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </motion.div>
             </button>
-            {openIndex === index && (
-              <div className="p-5 border-t border-gray-200 text-gray-500">
-                <p>{faq.answer}</p>
-              </div>
-            )}
-          </div>
+            <AnimatePresence>
+              {openIndex === index && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ 
+                    height: "auto", 
+                    opacity: 1,
+                    transition: {
+                      height: { duration: 0.3 },
+                      opacity: { duration: 0.2, delay: 0.1 }
+                    }
+                  }}
+                  exit={{ 
+                    height: 0, 
+                    opacity: 0,
+                    transition: {
+                      height: { duration: 0.2 },
+                      opacity: { duration: 0.1 }
+                    }
+                  }}
+                  className="overflow-hidden"
+                >
+                  <div className="p-5 border-t border-gray-200 text-gray-500">
+                    <p>{faq.answer}</p>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
         ))}
       </div>
     </section>

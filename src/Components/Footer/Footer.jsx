@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer>
       <div className="bg-[#000E22] text-white py-7  flex justify-between items-center relative top-32">
-        <div className="flex relative left-20">
+        <div className="flex relative left-10 md:left-20">
           <Image
             src="/Images/logo-icon.svg"
             width={20}
@@ -22,7 +22,7 @@ export default function Footer() {
             priority
           />
         </div>
-        <div className="relative right-20">
+        <div className="relative md:right-10 right-20">
           <p className="text-sm">© 2023 Abbott. All rights reserved.</p>
         </div>
       </div>

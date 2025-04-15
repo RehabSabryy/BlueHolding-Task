@@ -49,7 +49,7 @@ export default function RankingSection() {
               className="w-[39px]"
               alt="Leaderboard"
             />
-            <div className="py-2 text-center cursor-pointer text-[20px]">
+            <div className="py-2 text-center cursor-pointer text-[20px]" onClick={handleNavigate}>
               <p>View Full</p>
               <p>Leaderboard</p>
             </div>
