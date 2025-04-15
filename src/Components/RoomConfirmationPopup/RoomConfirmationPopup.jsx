@@ -12,7 +12,6 @@ export default function RoomConfirmationPopup({onClose}) {
       }
     };
 
-    // test 
     const handleEscape = (e) => {
       if (e.key === "Escape") triggerClose();
     };
@@ -32,6 +31,11 @@ export default function RoomConfirmationPopup({onClose}) {
       onClose();
     }, 300);
   };
+
+  // handle the start game button click to go to the game page
+  const handleStartGame = () => {
+    window.open("https://view.genially.com/6799e5348a8f0733d58460db", "_blank");
+  }
 
   return (
     <div
@@ -69,7 +73,7 @@ export default function RoomConfirmationPopup({onClose}) {
             </ul>
           </div>
 
-          <button className="w-full bg-[#0096D7] text-white text-lg md:text-2xl font-medium cursor-pointer rounded-md py-3 flex items-center justify-center gap-2 hover:bg-[#007bb3] transition duration-300">
+          <button onClick={handleStartGame} className="w-full bg-[#0096D7] text-white text-lg md:text-2xl font-medium cursor-pointer rounded-md py-3 flex items-center justify-center gap-2 hover:bg-[#007bb3] transition duration-300">
             <img src="/Images/rocket-white.svg" alt="" className="w-6 h-6" />
             Start Game
           </button>

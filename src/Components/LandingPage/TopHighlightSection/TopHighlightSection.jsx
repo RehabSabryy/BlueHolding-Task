@@ -1,5 +1,7 @@
 import { useState } from "react";
 import SectionTitle from "@/Components/SectionTitle/SectionTitle";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 export default function TopHighlightSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -65,49 +67,67 @@ export default function TopHighlightSection() {
         </button>
       </div>
 
-      <div className="relative w-full bg-[#F3F3F3]">
-        <button
-          onClick={prevSlide}
-          className="absolute left-10 top-1/2 transform -translate-y-1/2 bg-[#E3E3E3] hover:bg-white py-2 px-3 cursor-pointer rounded-xl shadow z-10 disabled:opacity-30"
-          disabled={currentIndex === 0}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={activeTab}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -30 }}
+          transition={{ duration: 0.5 }}
+          className="relative w-full bg-[#F3F3F3]"
         >
-          <span className="text-[#B7B7B7] font-bold">{"<"}</span>
-        </button>
-
-        <div className="overflow-hidden mx-20">
-          <div
-            className="flex gap-4 transition-transform duration-300 overflow-hidden"
-            style={{
-              transform: `translateX(-${currentIndex * (100 / visibleCount)}%)`,
-              width: `${(images.length / visibleCount) * 100}%`,
-            }}
+          <button
+            onClick={prevSlide}
+            className="absolute left-10 top-1/2 transform -translate-y-1/2 bg-[#E3E3E3] hover:bg-white py-2 px-3 cursor-pointer rounded-xl shadow z-10 disabled:opacity-30"
+            disabled={currentIndex === 0}
           >
+            <span className="text-[#B7B7B7] font-bold">{"<"}</span>
+          </button>
+
+          <div className="overflow-hidden mx-20">
+            <div
+              className="flex gap-4 transition-transform duration-300 overflow-hidden"
+              style={{
+                transform: `translateX(-${currentIndex * (100 / visibleCount)}%)`,
+                width: `${(images.length / visibleCount) * 100}%`,
+              }}
+            >
             {images.map((img, index) => (
-              <div key={index} className="px-4 py-7 text-center">
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="px-4 py-7 text-center"
+              >
                 <p className="w-9 h-9 flex justify-center items-center mx-auto mb-2 rounded-full border bg-orange-200 border-orange-500 p-2 text-orange-500 text-sm">
                   {index + 1}
                 </p>
                 <div className="w-[209px] h-[180px] mx-auto overflow-hidden rounded-md">
-                  <img
+                <Image
                     src={img}
                     alt={`Highlight ${index + 1}`}
+                    width={209}
+                    height={180}
                     className="w-full h-full object-cover object-top"
                   />
                 </div>
                 <p className="mt-2 text-[#696969]">100 points</p>
-              </div>
+              </motion.div>
             ))}
+            </div>
           </div>
-        </div>
 
-        <button
-          onClick={nextSlide}
-          className="absolute right-10 top-1/2 transform -translate-y-1/2 bg-[#E3E3E3] hover:bg-white py-2 px-3 cursor-pointer rounded-xl shadow z-10 disabled:opacity-30"
-          disabled={currentIndex + visibleCount >= images.length}
-        >
-          <span className="text-[#B7B7B7] font-bold">{">"}</span>
-        </button>
-      </div>
+          <button
+            onClick={nextSlide}
+            className="absolute right-10 top-1/2 transform -translate-y-1/2 bg-[#E3E3E3] hover:bg-white py-2 px-3 cursor-pointer rounded-xl shadow z-10 disabled:opacity-30"
+            disabled={currentIndex + visibleCount >= images.length}
+          >
+            <span className="text-[#B7B7B7] font-bold">{">"}</span>
+          </button>
+        </motion.div>
+      </AnimatePresence>
     </section>
   );
 }

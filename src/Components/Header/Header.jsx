@@ -1,3 +1,4 @@
+import Image from 'next/image';
 
 export default function Header() {
   return (
@@ -7,22 +8,34 @@ export default function Header() {
           href="#"
           className="flex items-center py-3"
         >
-          <img
+          <Image
             src="/Images/logo-icon.svg"
-            className="h-5"
-            alt="Flowbite Logo"
+            width={20}
+            height={20}
+            className="h-5 w-auto"
+            alt="App Logo"
+            priority 
           />
-          <img
-            src="./Images/abbott.svg"
-            className="h-5 ms-1"
+          <Image
+            src="/Images/abbott.svg"
+            width={80}
+            height={20}
+            className="h-5 w-auto ms-1"
             alt="Abbott"
+            priority
           />
         </a>
         <div
           className="inline-flex items-center p-2 justify-center "
         >
-         <img src="/Images/profile-icon.svg" alt="Profile" />
-        </div>
+          <Image
+            src="/Images/profile-icon.svg"
+            width={34}
+            height={34}
+            alt="Profile"
+            loading="lazy" 
+          />        
+          </div>
       </div>
     </nav>
   );

@@ -10,11 +10,11 @@ export default function LeaderboardPage() {
 <div className="bg-leaderboard w-full flex flex-col items-center justify-center">
   <Header />
       <section id="full-leaderboard-section" className="relative top-32">
-        <div className="flex items-center mt-10 mb-5">
-          <Link href="/" className="text-[#0096D7] text-lg font-semibold relative left-[-150px]">
+        <div className="flex md:flex-row flex-col items-center mt-10 mb-5">
+          <Link href="/" className="text-[#0096D7] text-lg font-semibold relative md:left-[-150px] left-0">
            {"< "}Back to home
           </Link>
-          <h4 className="text-4xl font-semibold text-[#363636] relative left-[100px]">
+          <h4 className="text-4xl font-semibold text-[#363636] relative md:left-[100px] left:0">
             See Where You Stand!
           </h4>
         </div>
