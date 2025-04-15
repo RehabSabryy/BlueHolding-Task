@@ -101,9 +101,20 @@ export default function TopHighlightSection() {
                 transition={{ duration: 0.4, delay: index * 0.05 }}
                 className="px-4 py-7 text-center"
               >
-                <p className="w-9 h-9 flex justify-center items-center mx-auto mb-2 rounded-full border bg-orange-200 border-orange-500 p-2 text-orange-500 text-sm">
-                  {index + 1}
-                </p>
+              <p
+                className={`w-9 h-9 flex justify-center items-center mx-auto mb-2 rounded-full border p-2 font-semibold
+                  ${
+                    index === 0
+                      ? "bg-[#FCD196] border-[#E0C117] text-[#E0C117]"
+                      : index === 1
+                      ? "bg-[#C8C8C8] border-[#ACACAC] text-[#9a9a9a]"
+                      : index === 2
+                      ? "bg-[#F7C0A5] border-[#CD7F32] text-[#CD7F32]"
+                      : "bg-[#999999] text-[#434343] border-[#434343]"
+                  }`}
+              >
+              {index + 1}
+            </p>
                 <div className="w-[209px] h-[180px] mx-auto overflow-hidden rounded-md">
                 <Image
                     src={img}
