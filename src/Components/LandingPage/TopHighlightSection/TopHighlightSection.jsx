@@ -103,6 +103,7 @@ export default function TopHighlightSection() {
               >
               <p
                 className={`w-9 h-9 flex justify-center items-center mx-auto mb-2 rounded-full border p-2 font-semibold
+                  
                   ${
                     index === 0
                       ? "bg-[#FCD196] border-[#E0C117] text-[#E0C117]"
