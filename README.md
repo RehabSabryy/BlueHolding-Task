@@ -16,6 +16,6 @@ This project was created as part of the Blue Holding technical assessment. It sh
 
 ## 🌐 Live Demo
 
- [View Demo] : 
+ [View Demo] : https://drive.google.com/file/d/1rAcQEXAb9-xL9e9wFIkdCfZMMtbuU-7A/view?usp=sharing
 
 Vercel app : https://blueholding-gamifield-lms-solution-66o5ek9t3.vercel.app/
