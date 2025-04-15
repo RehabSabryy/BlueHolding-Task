@@ -8,6 +8,7 @@ import Head from "next/head";
 export default function LeaderboardPage() {
   return (
     <>
+    
       <Head>
         <title>Your Awesome Product</title>
         <meta name="BlueHolding Gamified LMS Solution Leaderboard" content="Full leaderboard for BlueHolding Gamified LMS Solution" />
